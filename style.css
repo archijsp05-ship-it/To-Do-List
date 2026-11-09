@@ -1,0 +1,103 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: linear-gradient(135deg, #4f46e5, #06b6d4);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+.app {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  padding: 24px;
+  height: fit-content;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 { text-align: center; margin-bottom: 20px; color: #1e293b; }
+
+#todo-form { display: flex; gap: 8px; margin-bottom: 16px; }
+
+#todo-input {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+#todo-input:focus { border-color: #4f46e5; }
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+#todo-form button {
+  background: #4f46e5;
+  color: #fff;
+  padding: 0 20px;
+  font-weight: 600;
+}
+#todo-form button:hover { background: #4338ca; }
+
+.filters { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
+
+.filter-btn {
+  padding: 6px 14px;
+  background: #f1f5f9;
+  color: #475569;
+}
+.filter-btn.active { background: #4f46e5; color: #fff; }
+
+#todo-list { list-style: none; }
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.todo-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+
+.todo-text { flex: 1; color: #1e293b; word-break: break-word; }
+.todo-item.completed .todo-text { text-decoration: line-through; color: #94a3b8; }
+
+.edit-input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 2px solid #4f46e5;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.edit-btn, .delete-btn, .save-btn {
+  padding: 6px 10px;
+  color: #fff;
+}
+.edit-btn { background: #f59e0b; }
+.save-btn { background: #10b981; }
+.delete-btn { background: #ef4444; }
+
+.empty { text-align: center; color: #94a3b8; padding: 20px 0; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+#clear-completed { background: transparent; color: #ef4444; }
+#clear-completed:hover { text-decoration: underline; }
