@@ -5,7 +5,7 @@ const STORAGE_KEY = "todos";
 
 const state = {
   todos: loadTodos(),
-  filter: "all", // "all" | "active" | "completed"
+  filter: "all",
   editingId: null,
 };
 
@@ -56,8 +56,6 @@ function clearCompleted() {
   state.todos = state.todos.filter((t) => !t.completed);
   commit();
 }
-
-/* Save to storage, then re-render */
 function commit() {
   saveTodos();
   render();
@@ -100,8 +98,7 @@ function createTodoElement(todo) {
   } else {
     const span = document.createElement("span");
     span.className = "todo-text";
-    span.textContent = todo.text; // textContent prevents HTML injection
-
+    span.textContent = todo.text; 
     const editBtn = document.createElement("button");
     editBtn.className = "edit-btn";
     editBtn.textContent = "Edit";
@@ -158,8 +155,6 @@ form.addEventListener("submit", (e) => {
   input.value = "";
   input.focus();
 });
-
-// Event delegation: ONE listener on the <ul> handles every item's buttons
 list.addEventListener("click", (e) => {
   const li = e.target.closest(".todo-item");
   if (!li) return;
@@ -181,7 +176,6 @@ list.addEventListener("change", (e) => {
   }
 });
 
-// Enter saves, Escape cancels while editing
 list.addEventListener("keydown", (e) => {
   if (!e.target.classList.contains("edit-input")) return;
   const id = e.target.closest(".todo-item").dataset.id;
@@ -193,7 +187,6 @@ list.addEventListener("keydown", (e) => {
   }
 });
 
-// Delegated filter buttons
 filters.addEventListener("click", (e) => {
   const btn = e.target.closest(".filter-btn");
   if (!btn) return;
